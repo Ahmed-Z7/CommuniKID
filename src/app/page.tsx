@@ -14,9 +14,9 @@ export default function Home() {
     const res = await seedDatabaseAction();
     setIsSeeding(false);
     if ("message" in res) {
-      setSeedStatus(res.message);
+      setSeedStatus(res.message ?? "Success");
     } else {
-      setSeedStatus(res.error || "Error");
+      setSeedStatus(res.error ?? "Error");
     }
     setTimeout(() => setSeedStatus(null), 5000);
   };
